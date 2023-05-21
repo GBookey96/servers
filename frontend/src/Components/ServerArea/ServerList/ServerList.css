@@ -1,0 +1,5 @@
+.ServerList > .Box{
+	border: 1px solid black;
+    width: 250px;
+    margin: auto;
+}
