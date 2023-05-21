@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 16, 2023 at 04:52 PM
+-- Generation Time: May 21, 2023 at 04:48 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `mesima3`
 --
+CREATE DATABASE IF NOT EXISTS `mesima3` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `mesima3`;
 
 -- --------------------------------------------------------
 
@@ -27,14 +29,13 @@ SET time_zone = "+00:00";
 -- Table structure for table `allservers`
 --
 
-DROP TABLE IF EXISTS `allservers`;
 CREATE TABLE `allservers` (
   `serverId` int(11) NOT NULL,
   `serverName` varchar(30) NOT NULL,
   `serverIp` varchar(20) NOT NULL,
   `serverHostId` int(11) NOT NULL,
-  `serverStatus` int(11) NOT NULL,
-  `serverCreatedOn` datetime NOT NULL
+  `serverStatus` tinyint(1) NOT NULL,
+  `serverCreatedOn` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -42,18 +43,39 @@ CREATE TABLE `allservers` (
 --
 
 INSERT INTO `allservers` (`serverId`, `serverName`, `serverIp`, `serverHostId`, `serverStatus`, `serverCreatedOn`) VALUES
-(2, 'Seshimmer', '83.136.214.38', 1, 1, '2023-05-02 14:50:27'),
-(3, 'Serlaf', '84.140.128.27', 2, 0, '2023-05-07 14:50:27'),
-(4, 'Lollirver', '224.31.190.55', 3, 1, '2023-05-01 14:50:27'),
-(5, 'Dumbleserver', '88.74.210.139', 4, 0, '2023-05-03 14:50:27'),
-(6, 'Serverett', '15.182.248.94', 1, 1, '2023-05-04 14:50:27'),
-(7, 'Rusalrver', '173.173.28.52', 2, 0, '2023-05-05 14:50:27'),
-(8, 'Sererion', '135.147.109.72', 3, 1, '2023-05-06 14:50:27'),
-(9, 'Kramrver', '186.102.161.149', 4, 0, '2023-05-08 14:50:27'),
-(10, 'Serverilbo', '34.119.225.163', 1, 1, '2023-05-09 14:50:27'),
-(11, 'Forestserver', '92.234.141.231', 2, 0, '2023-05-10 14:50:27'),
-(12, 'Serverelf', '134.240.153.92', 3, 1, '2023-05-11 14:50:27'),
-(13, 'Serverolas', '218.29.106.182', 4, 0, '2023-05-12 14:50:27');
+(2, 'Seshimmer', '83.136.214.38', 1, 1, '2023-05-02'),
+(3, 'Serlaf', '84.140.128.27', 2, 1, '2023-05-07'),
+(4, 'Lollirver', '224.31.190.55', 3, 0, '2023-05-01'),
+(5, 'Dumbleserver', '88.74.210.139', 4, 0, '2023-05-03'),
+(6, 'Serverett', '15.182.248.94', 1, 1, '2023-05-04'),
+(7, 'Rusalrver', '173.173.28.52', 2, 0, '2023-05-05'),
+(8, 'Sererion', '135.147.109.72', 3, 0, '2023-05-06'),
+(9, 'Kramrver', '186.102.161.149', 4, 0, '2023-05-08'),
+(10, 'Serverilbo', '34.119.225.163', 1, 1, '2023-05-09'),
+(11, 'Forestserver', '92.234.141.231', 2, 1, '2023-05-10'),
+(12, 'Serverelf', '134.240.153.92', 3, 0, '2023-05-11'),
+(13, 'Serverolas', '218.29.106.182', 4, 0, '2023-05-12');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `serverhost`
+--
+
+CREATE TABLE `serverhost` (
+  `serverHostId` int(11) NOT NULL,
+  `serverHostName` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `serverhost`
+--
+
+INSERT INTO `serverhost` (`serverHostId`, `serverHostName`) VALUES
+(1, 'Microsoft'),
+(2, 'IBM'),
+(3, 'GoDaddy'),
+(4, 'DigitalO');
 
 --
 -- Indexes for dumped tables
@@ -67,6 +89,12 @@ ALTER TABLE `allservers`
   ADD KEY `serverHostId` (`serverHostId`);
 
 --
+-- Indexes for table `serverhost`
+--
+ALTER TABLE `serverhost`
+  ADD PRIMARY KEY (`serverHostId`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -75,6 +103,12 @@ ALTER TABLE `allservers`
 --
 ALTER TABLE `allservers`
   MODIFY `serverId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `serverhost`
+--
+ALTER TABLE `serverhost`
+  MODIFY `serverHostId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
