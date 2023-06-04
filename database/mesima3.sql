@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 21, 2023 at 04:48 PM
+-- Generation Time: May 28, 2023 at 01:46 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -47,7 +47,7 @@ INSERT INTO `allservers` (`serverId`, `serverName`, `serverIp`, `serverHostId`, 
 (3, 'Serlaf', '84.140.128.27', 2, 1, '2023-05-07'),
 (4, 'Lollirver', '224.31.190.55', 3, 0, '2023-05-01'),
 (5, 'Dumbleserver', '88.74.210.139', 4, 0, '2023-05-03'),
-(6, 'Serverett', '15.182.248.94', 1, 1, '2023-05-04'),
+(6, 'Serverett', '15.182.248.94', 1, 0, '2023-05-04'),
 (7, 'Rusalrver', '173.173.28.52', 2, 0, '2023-05-05'),
 (8, 'Sererion', '135.147.109.72', 3, 0, '2023-05-06'),
 (9, 'Kramrver', '186.102.161.149', 4, 0, '2023-05-08'),
